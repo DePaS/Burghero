@@ -4,6 +4,9 @@ import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 
 export default defineConfig({
+  proxy: {
+    "/api": "http://localhost:3000",
+  },
   server: {
     host: true,
     port: 80,
