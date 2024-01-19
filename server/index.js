@@ -53,6 +53,9 @@ app.get("/api/ordini", async (_req, res) => {
     res.json({ data: result });
   } catch (error) {
     console.error("Errore durante l'esecuzione della query:", error);
+    if (error.response) {
+      console.error("Errore nella risposta:", error.response.data);
+    }
     res
       .status(500)
       .json({ error: "Errore del server", details: error.message });
