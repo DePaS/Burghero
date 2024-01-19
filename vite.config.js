@@ -5,7 +5,7 @@ import autoprefixer from "autoprefixer";
 
 export default defineConfig({
   proxy: {
-    "/api": "http://localhost:3000",
+    "/api": "http://13.48.27.75:3000",
   },
   server: {
     host: true,

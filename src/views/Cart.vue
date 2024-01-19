@@ -42,7 +42,7 @@ const mandaOrdine = async () => {
     for (let i = 0; i < ordine.value.length; i++) {
       ordineObj.push(ordine.value[i]);
     }
-    const response = await axios.post("http://localhost:3000/api/ordini", {
+    const response = await axios.post("http://13.48.27.75:3000/api/ordini", {
       nomeCliente: cliente.value,
       ordine: JSON.stringify(ordineObj),
     });

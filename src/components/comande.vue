@@ -38,7 +38,9 @@ const data = ref({});
 
 const getOrders = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/api/ordini");
+    console.log("funziona la richiesta?");
+    const response = await axios.get("http://13.48.27.75:3000/api/ordini");
+    console.log("funziona la richiesta?");
     data.value = response.data.data;
   } catch (error) {
     console.error("Errore durante il caricamento: " + error);
@@ -48,7 +50,7 @@ const getOrders = async () => {
 const deleteOrder = async (cliente) => {
   try {
     const response = await axios.delete(
-      `http://localhost:3000/api/ordini/${cliente}`
+      `http://13.48.27.75:3000/api/ordini/${cliente}`
     );
     getOrders();
   } catch (error) {
