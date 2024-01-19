@@ -30,6 +30,23 @@ const db = mysql
   })
   .promise();
 
+db.on("acquire", function (connection) {
+  console.log("Connessione al database acquisita!");
+});
+
+db.getConnection()
+  .then((connection) => {
+    console.log("Connesso al database MySQL");
+
+    // Puoi eseguire altre operazioni qui una volta connesso al database
+
+    // Rilascia la connessione quando hai finito (il pool gestirà automaticamente la restituzione al pool)
+    connection.release();
+  })
+  .catch((err) => {
+    console.error("Errore di connessione al database:", err);
+  });
+
 app.get("/api/ordini", async (_req, res) => {
   try {
     const [result, row] = await db.query("SELECT * FROM ordini");
